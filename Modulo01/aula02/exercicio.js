@@ -67,7 +67,7 @@ IMC em adultos Condição:
 
 let peso = 50;
 let altura = 1.70;
-let imc = peso / (altura * altura);
+let imc = peso / Math.pow(altura, 2);
 
 if(imc >= 0 && imc < 18.5){
     console.log('Abaixo do peso');
@@ -96,7 +96,6 @@ Código Condição de pagamento:
 
 let etiqueta = 100;
 let opc = 4;
-let nParcelas= 3;
 let resultado;
 
 if(opc === 1){
@@ -105,12 +104,12 @@ if(opc === 1){
 }else if(opc === 2){
     resultado = etiqueta - (etiqueta * 0.15);
     console.log('À vista no Dinheiro ou PIX, o valor a ser pago após o desconto é de: R$' + resultado.toFixed(2));
-}else if(opc === 3 && nParcelas === 2){
-    resultado = etiqueta / 2;
-    console.log('Em duas vezes, o valor pago em cada parcela será de: R$' + resultado.toFixed(2));
-}else if(opc === 4 && nParcelas > 2){
-    resultado = (etiqueta + (etiqueta * 0.10)) / nParcelas;
-    console.log('Em ' + nParcelas + ' vezes, ocorre um acrescimo de 10% tornando o valor de cada parcela igual a: R$' + resultado.toFixed(2));
+}else if(opc === 3){
+    resultado = etiqueta;
+    console.log('Em duas vezes, o valor pago será de: R$' + resultado.toFixed(2));
+}else if(opc === 4){
+    resultado = (etiqueta + (etiqueta * 0.10));
+    console.log('Em mais de 2 vezes, ocorre um acrescimo de 10% tornando o valor de cada parcela igual a: R$' + resultado.toFixed(2));
 }else{
     console.log('Opção inválida');
 }
