@@ -1,0 +1,367 @@
+body {
+  overflow-y: scroll;
+}
+
+body.modal-open {
+  overflow-y: hidden; /* Impede a rolagem do fundo quando o modal está aberto */
+}
+
+.pokemons {
+    display: grid;
+    grid-template-columns: 1fr;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+@media screen and (min-width: 380px) {
+    .pokemons {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 576px) {
+    .pokemons {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .pokemons {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+/* -- Classes com as cores de cada tipo de pokemon -- */
+
+.normal {
+    background-color: #a6a877;
+}
+
+.grass {
+    background-color: #77c850;
+}
+
+.fire {
+    background-color: #ee7f30;
+}
+
+.water {
+    background-color: #678fee;
+}
+
+.electric {
+    background-color: #f7cf2e;
+}
+
+.ice {
+    background-color: #98d5d7;
+}
+
+.ground {
+    background-color: #dfbf69;
+}
+
+.flying {
+    background-color: #a98ff0;
+}
+
+.poison {
+    background-color: #a040a0;
+}
+
+.fighting {
+    background-color: #bf3029;
+}
+
+.psychic {
+    background-color: #f65687;
+}
+
+.dark {
+    background-color: #725847;
+}
+
+.rock {
+    background-color: #b8a137;
+}
+
+.bug {
+    background-color: #a8b720;
+}
+
+.ghost {
+    background-color: #6e5896;
+}
+
+.steel {
+    background-color: #b9b7cf;
+}
+
+.dragon {
+    background-color: #6f38f6;
+}
+
+.fairy {
+    background-color: #f9aec7;
+}
+
+/* -- Fim das classes com as cores de cada pokemon --  */
+
+.pokemon {
+    margin: .5rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.pokemon .number{
+    color: #000;
+    opacity: .3;
+    text-align: right;
+    font-size: .625rem;
+}
+
+.pokemon .name {
+    color: #fff;
+    margin-bottom: .25rem;
+    text-transform: capitalize;
+}
+
+.pokemon .detail {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}   
+
+.pokemon .detail .types {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.pokemon .detail .types .type{
+    color: #fff;
+    padding: .25rem .5rem;
+    font-size: .625rem;
+    margin: .25rem 0;
+    border-radius: 1rem; 
+    filter: brightness(1.1);
+    text-align: center;
+}
+
+.pokemon .detail img {
+    max-width: 100%;
+    height: 70px;
+}
+
+.pagination{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+}
+
+.pagination .button{
+    padding: .25rem .5rem;
+    font-size: .625rem;
+    margin: .25rem 0;
+    color: #fff;
+    background-color: #6c79db;
+    border: none;
+    border-radius: 1rem;
+}
+
+
+/*Configuração do modal*/
+
+
+.modal {
+  display: none; /* Escondido por padrão */
+  position: fixed; /* Fixo na tela, cobrindo todo o conteúdo */
+  top: 0; left: 0;
+  width: 100%; 
+  height: 100%; /* Ocupa 100% da altura da tela */
+  background-color: rgba(0,0,0,0.5); /* Fundo escurecido */
+  justify-content: center; /* Centraliza */
+  align-items: center;
+  overflow-y: auto; /* Adiciona rolagem ao modal se o conteúdo for maior que a tela */
+}
+
+.modal-conteudo{
+  width: 70%; /* Ocupa até 90% do espaço disponível */
+  max-width: 400px; /* Mas não passa de 500px de largura */
+  height: auto;
+  border-radius: 7%;
+  border-bottom-left-radius: 10%;   /* arredonda o canto inferior esquerdo */
+  border-bottom-right-radius: 10%;  /* arredonda o canto inferior direito */
+}
+
+/*Modal superior*/
+
+.modal-superior{
+    padding-left: 10%;
+    padding-right: 0%;
+    padding-bottom: 8%;
+}
+
+.modal-superior h1{
+    text-transform: capitalize;
+    margin-bottom: 0%;
+    color: white;
+}
+.modal-superior #number{
+   float: right;
+   padding-right: 5%;
+   color: white;
+}
+
+.modal-superior #types{
+    list-style: none; /* remove os números da lista */
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.modal-superior ol{
+    gap: 5%;
+}
+
+.modal-superior #types li.type{
+    color: #fff;
+    font-size: 1rem; 
+    filter: brightness(1.2);
+    border-radius: 0.9rem;
+    text-transform: capitalize;
+    padding-right: 6%;
+    padding-left: 6%;
+    padding-top: 2%;
+    padding-bottom: 2%
+}
+
+.container {
+  display: flex;
+  justify-content: center; /* centraliza horizontalmente */
+  align-items: center;     /* centraliza verticalmente */
+  height: auto;           /* exemplo: ocupa a tela toda */
+}
+
+.container img {
+  width: 200px; /* exemplo */
+}
+
+
+
+
+/*Modal Inferior*/
+
+
+.modal-inferior{
+    background-color: white;
+    border-radius: 10%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+
+/*Elementos do modal inferior*/
+
+/*Menu*/
+
+#menu{
+    list-style: none;
+    display: flex;
+    margin: 0;
+    gap: 5%;
+    justify-content: center;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    padding: 0;
+    overflow: hidden;
+    margin-left: 2%;
+    margin-right: 2%;
+    padding-top: 3%;
+    padding-bottom: 5%;
+}
+
+.itemMenu{ 
+    flex-grow: 1; /* Faz cada item crescer para ocupar o espaço */
+    text-align: center; /* Centraliza o texto dentro de cada item */
+    width: 2%;
+    margin: 0;
+    padding: 0;
+}
+
+.itemMenu button{
+     all: unset;
+     opacity: 0.4;
+}
+
+.itemMenu button:focus{
+    border-bottom: 2px solid black;
+    opacity: 1;
+}
+
+/* Primeira Tabela Aba About*/
+
+#tabela01{
+   border-spacing: 0rem 1rem;
+}
+
+#tabela01 .T1-coluna01{
+    opacity: 0.4;
+}
+
+#tabela01 .T1-coluna01{
+    padding-right: 65px;
+}
+
+#elementAbilities{
+    text-transform: capitalize; 
+}
+
+/* H2 da parte inferior aba About*/
+
+#h2-parteInferior{
+    margin: 0;
+}
+
+/* Segunda Tabela aba About */
+
+#tabela02{
+    border-spacing: 0rem 1rem;
+}
+
+#tabela02 .T2-coluna01{
+    opacity: 0.4;
+}
+
+#tabela02 .T2-coluna01{
+    padding-right: 45px;
+}
+
+/* Tabela de progresso Aba Stats*/
+
+#tabela03{
+    border-spacing: 0rem 1rem;
+}
+
+
+
+.progress-bar {
+  width: 150px;
+  height: 8px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  border-radius: 10px 0 0 10px;
+  transition: width 0.4s ease;
+}
