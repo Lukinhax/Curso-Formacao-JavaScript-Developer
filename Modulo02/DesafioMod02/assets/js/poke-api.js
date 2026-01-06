@@ -14,14 +14,14 @@ async function convertPokeApiDetailToPokemon(pokeDetail){
     
     pokemon.photo = pokeDetail.sprites.other.dream_world.front_default // Aqui a varaivel photo da instancia pokemon está recebendo o seu valor correspondente que está presente na resposta da api dentro das seções sprites > other > dream_world > front_default, lembrando que a resposta da API está armazenada na variavel pokeDetail.
 
-    const height = pokeDetail.height / 10
-    pokemon.height = height.toFixed(2)
+    const height = pokeDetail.height / 10 // Aqui a variavel height está recebendo o seu valor correspondente que está presente na resposta da api porém divido por 10 
+    pokemon.height = height.toFixed(2) // Aqui a variavel height da instancia pokemon está recebendo o seu valor da varivel height e estamos definindo 2 numeros após a virgula
 
-    const weight = pokeDetail.weight / 10
-    pokemon.weight = weight
+    const weight = pokeDetail.weight / 10 // Aqui a variavel weight está recebendo o seu valor correspondente que está presente na resposta da api porém divido por 10 
+    pokemon.weight = weight // Aqui a variavel weight da instancia pokemon está recebendo o seu valor da varivel weight
 
-    const abilities = pokeDetail.abilities.map((abilitySlot) => abilitySlot.ability.name)    
-    pokemon.abilities = abilities
+    const abilities = pokeDetail.abilities.map((abilitySlot) => abilitySlot.ability.name) // Aqui a variavel abilities está recebendo o seu valor correspondente que está presente na resposta da api porém usando o map ele percorre cada elemento do array pegando o nome de cada um deles e como já é caracteristico do map criando um novo array 
+    pokemon.abilities = abilities // Aqui a variavel abilities da instancia pokemon está recebendo o seu valor da variavel abilities. 
 
 
 

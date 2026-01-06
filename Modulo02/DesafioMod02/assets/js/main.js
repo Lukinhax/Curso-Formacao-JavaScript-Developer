@@ -62,7 +62,7 @@ loadMoreButton.addEventListener('click', () => { // adiciona um "ouvinte" ao bot
 
 
 
-
+// Está função está retornando a estrutura html do modal inicial
 function convertPokemonToModal(pokemon){ 
     return `   
         <div class="modal-conteudo ${pokemon.type}"> 
@@ -92,6 +92,7 @@ function convertPokemonToModal(pokemon){
     `
 }
 
+// Nesta função está a estrtura html de quando o botão about do modal é clicado 
 function clickAbout(pokemon) {
     const conteudoAbout = `
         <table id="tabela01">
@@ -136,6 +137,8 @@ function clickAbout(pokemon) {
     modalInferior.innerHTML += conteudoAbout; // insere o conteudo armazenado na variavel conteudoAbout dentro do conteudo armazenado pela variavel modalInferior 
 }
 
+
+// Nesta função está a estrtura html de quando o botão stats do modal é clicado e os calculos paro os valores dos status 
 function clickStats(pokemon) {
   // Função auxiliar que calcula o valor da barra
   const calcularValor = (valor) => (valor <= 100 ? valor : valor / 2);
@@ -155,6 +158,7 @@ function clickStats(pokemon) {
   const valorSpecialDefense = calcularValor(pokemon.specialDefense);
   const valorSpeed = calcularValor(pokemon.speed);
 
+  // Estrutura html de quando o botão stats é clicado 
   const conteudoStats = `
     <table id="tabela03">
       <tbody>
